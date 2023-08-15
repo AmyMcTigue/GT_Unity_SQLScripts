@@ -19,3 +19,6 @@ ORDER BY SOLOGDATETIME DESC
  --SOSTATUS = '1' - SO is open 
  --SOSTATUS = '90' - SO is completed
  --SOSTATUS = '91' - SO is cancelled
+
+ -- To find SO names uncomment run script below  
+ -- SELECT * FROM CCSERVICEORDER_TYPE
