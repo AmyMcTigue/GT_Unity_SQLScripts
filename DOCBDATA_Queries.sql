@@ -1,4 +1,4 @@
--- Queries used for GENU-1330 
+-- Queries used for GENU-1330 - Testing for Process HK.DOCBDATA
 
 SELECT COUNT(DOCBD$DATAID) AS totalNumberOfEnteries FROM DOCBDATA
 
