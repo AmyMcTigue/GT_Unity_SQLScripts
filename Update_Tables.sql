@@ -1,4 +1,4 @@
--- Used for updating tables in the database
+-- Description: Used for updating tables in the database
 -- Be CAREFUL using this script, it can cause data loss if used incorrectly
 
 -- Add table 

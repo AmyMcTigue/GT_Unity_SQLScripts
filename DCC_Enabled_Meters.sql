@@ -1,3 +1,5 @@
+-- Description: Query for finding accounts with PAN and DCC enabled meters 
+
 Select DISTINCT CACCT AS Account, 
 			    CONSUMERNO AS consumer,
                 CINSTALL AS INSTALL,

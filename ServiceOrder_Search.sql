@@ -1,3 +1,5 @@
+-- Description: Script used to select accounts with a specific SO type and status
+
 SELECT DISTINCT TOP(100) SOACCOUNT AS Account,
 				SOTYPE AS ServiceOrder,
 				SOSTATUS AS SOStatus, 

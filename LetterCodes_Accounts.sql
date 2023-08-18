@@ -1,3 +1,5 @@
+-- Description: Query used to find accounts with a specific letter type 
+
 select
 row_number () over (partition by l.LETCODE_CODE order by l.LETDATE desc) as RowNumber
 ,l.LETID_ACC AccountID

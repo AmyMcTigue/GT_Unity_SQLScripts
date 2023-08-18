@@ -1,3 +1,5 @@
+-- Description: Query used for finding accounts with a specific credit code 
+
 SELECT Distinct CACCT AS Account,
                 CONSUMERNO AS consumer,
                 CINSTALL AS INSTALL,
@@ -14,8 +16,6 @@ SELECT Distinct CACCT AS Account,
 	AND LR$CREDIT$CODE = 'RPC'
 	AND ACRETAILER = 'OVO' -- ADD FOR RETAILER PAYM-OVO & PAYG-BST
 
-
-	 
 	-- PSR Comms codes 
 	-- LPT - Large Print
   	-- BNW - Black & White
@@ -23,4 +23,8 @@ SELECT Distinct CACCT AS Account,
     -- BRA - Braille
 	-- RPC - Repayment Customer 
 	-- BCD - Boost Customer Debt 
+
+-- To see all Credit codes in use on accounts use script below 
+-- SELECT DISTINCT LR$CREDIT$CODE FROM LEDGER#CREDT$CODE
+-- ORDER BY LR$CREDIT$CODE ASC
 

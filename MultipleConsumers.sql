@@ -1,3 +1,6 @@
+
+-- Description: This query will return all accounts that have more than one consumer with a gas or electric utility type. 
+
 SELECT
 		A.ACCTNO as ACCTNO
 		--,C.CONSUMERNO
