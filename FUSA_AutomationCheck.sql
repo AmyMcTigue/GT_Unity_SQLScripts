@@ -6,10 +6,12 @@ SELECT TOP(1) * FROM FUSA_Job_Run ORDER BY 1 DESC;
 
 -- Used to see the steps that have been run in the orchestration script
 SELECT * FROM DBO.SchedulerRecords 
+WHERE Component_Started_DateTime >= DATEADD(DAY, -1, GETDATE()) -- To see the last 24 hours
 ORDER BY Component_Started_DateTime DESC
 
 -- Used to see the records to be deleted 
 SELECT * FROM FUSA_Run_Entity
+WHERE Started_DateTime >= DATEADD(DAY, -1, GETDATE())  -- To see the last 24 hours
 ORDER BY Started_DateTime DESC
 
 -- Used to see all runs of the scripts 
