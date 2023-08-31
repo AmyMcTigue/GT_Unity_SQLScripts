@@ -47,11 +47,11 @@ EXEC sp_spaceused [GBREGISTER_FUSA] ;
 EXEC sp_spaceused [DAREGHISTORY_FUSA] ;
 EXEC sp_spaceused [FUSA_Job_Run] ;
 
--- Query used for comparing the data between the Preprod DB and the FUSA DB
+-- Query used for comparing the data between the Preprod DB and the FUSA DB Total count of records
 SELECT
 
-	COUNT(PPDB.GBR$SEQNO) AS GTPPDB, 
-	COUNT(FDB.GBR$SEQNO) AS FUSADB
+	COUNT(PPDB.GBR$SEQNO) AS GTPP_DB, 
+	COUNT(FDB.GBR$SEQNO) AS FUSA_DB
 
 FROM [Gen_PreProd].dbo.GBREGHIST_FUSA AS PPDB
 
@@ -59,12 +59,11 @@ FULL JOIN
 	[FUSA_Automation_Preprod].dbo.GBREGHIST_FUSA AS FDB 
 	ON PPDB.GBR$SEQNO = FDB.GBR$SEQNO
 
---WHERE PPDB.GBR$SEQNO IS NULL 
-
+-- Query used to confirm the new data in the FUSA DB
 SELECT
 
-	COUNT(PPDB.GBR$SEQNO) AS GTPPDB, 
-	COUNT(FDB.GBR$SEQNO) AS FUSADB
+	COUNT(PPDB.GBR$SEQNO) AS GTPP_DB, 
+	COUNT(FDB.GBR$SEQNO) AS FUSA_DB
 
 FROM [Gen_PreProd].dbo.GBREGHIST_FUSA AS PPDB
 
@@ -74,3 +73,12 @@ FULL JOIN
 
 WHERE PPDB.GBR$SEQNO IS NULL 
 
+-- Query used to see data for specific entity in the new database
+SELECT SUM(EXPECTED) AS CountSinceDBCreation 
+FROM FUSA_Run_Entity
+
+where Started_DateTime > '2023-07-21 00:00:00.000' -- Date of DB Creation 
+and Entity_ID = '4' --GDSGBREGISTER
+
+-- Query for finding the entity_ID for each stored procedure for entity deletion
+-- SELECT * FROM FUSA_Deletion_Entity
