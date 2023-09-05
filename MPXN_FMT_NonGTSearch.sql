@@ -1,0 +1,10 @@
+SELECT Distinct FMTTRANTYPE AS TransactionType,
+                FMTSTATUS AS FMTStatus,
+                FMTREF1 AS MPXN_FMT
+                FROM FMTRANSIN
+    LEFT JOIN INSTALL ON ICP_IDENT = FMTREF1
+
+    WHERE ICP_IDENT IS NULL
+    AND FMTTRANTYPE = 'XDMON_OUT_01'
+    --AND FMTSTATUS = 9
+    
