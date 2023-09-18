@@ -20,3 +20,4 @@ ORDER BY Started_DateTime DESC
 
 -- Used to see exceptions for failed runs 
 SELECT * FROM FUSA_Failed_Entity_Run
+ORDER BY Errored_Datetime DESC
