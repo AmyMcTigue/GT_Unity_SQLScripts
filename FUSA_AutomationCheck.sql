@@ -21,3 +21,12 @@ ORDER BY Started_DateTime DESC
 -- Used to see exceptions for failed runs 
 SELECT * FROM FUSA_Failed_Entity_Run
 ORDER BY Errored_Datetime DESC
+
+--Check the current parameters set in the orchestration script
+SELECT * FROM FUSA_Parameters
+
+-- Update Cut off date for deletion 
+--Exec ops.usp_BeInControl_SetParams @paramKey = 'CUT_OFF_DATE', @paramValue = '2017-10-17'-- in for format of 'YYYY-MM-DD'
+
+-- Reset the cut off date to default 
+--EXEC ops.usp_BeInControl_ResetCutOffDate

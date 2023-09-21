@@ -1,5 +1,5 @@
 -- Description: Script used for stored proedures monitoring the FUSA actions on database 
--- Stored procedures written by and managed by Simon Smart DBA 
+-- Stored procedures written by Nikhil Singh, and managed by Simon Smart DBA 
 
 EXEC sp_autoRunManagerMonitor
 
