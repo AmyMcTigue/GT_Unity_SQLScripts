@@ -1,7 +1,7 @@
 -- Description: This script is used to get the number of consumers per tariff 
 -- Used for Variable Price Change Tariff Testing
 
-SELECT CON.CCON_PLANID1, COUNT(C.CONSUMERNO) AS NoOfCustomers FROM CONSUMER C
+SELECT CON.CCON_PLANID1, COUNT(C.CONSUMERNO) AS NoOfConsumers FROM CONSUMER C
 OUTER APPLY (
 	SELECT TOP 1 * 
 	FROM EMS_CON_CONTRACT CON
@@ -24,5 +24,5 @@ OR CCON_PLANID1 LIKE 'OE_E_%_19'
 OR CCON_PLANID1 LIKE 'OE_G_%_19')
 
 GROUP BY CON.CCON_PLANID1
-ORDER BY NoOfCustomers DESC
+ORDER BY NoOfConsumers DESC
 
