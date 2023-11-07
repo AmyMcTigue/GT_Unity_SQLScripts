@@ -13,12 +13,14 @@ and exists
 SELECT top 1 *
 FROM [Gen_PreProd].[dbo].[ACCOUNTS] acct
 INNER JOIN [Gen_PreProd].[dbo].[CONSUMER] cons ON cons.CACCT = acct.ACCTNO
+INNER JOIN [Gen_PreProd].[dbo].[LEDGER#CREDT$CODE] led ON led.ledgerid  = cons.CACCT
 INNER JOIN [Gen_PreProd].[dbo].[CUSTOMERROLE] crol on crol.CUSR_ACCTNO=acct.ACCTNO
 INNER JOIN [Gen_PreProd].[dbo].[CUSTOMER] cust ON crol.CUSR_CUSTOMER=cust.CUS_SEQNO
 WHERE cons.CDFINAL <= DATEADD(year,-6,GETDATE()) -- consumer ended 6 years ago
 AND CSTATUSTYPE= '40' -- FOR FINALLED ACCOUNTS
 --AND CSTATUSTYPE= '20' -- * FOR PENDING ACCOUNTS
 AND acc.ACCTNO=acct.ACCTNO
+--AND LR$CREDIT$CODE = 'UOCC' -- ADD FOR UNKNOWN  OCCUPIER ACCOUNT ON PREPROD 
 )
 
 -- Test 3 - At least one active occupier account/consumer on vacant occupier account
